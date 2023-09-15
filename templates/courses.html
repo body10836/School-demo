@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<head>
+    <title>Courses</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Credit</th>
+            <th>Instructor</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.name }}</td>
+            <td>{{ course.credit }}</td>
+            <td>{{ course.instructor }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add a Course</h2>
+    <form method="POST" action="/courses/add">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="c_name" required><br>
+        <label for="credit">Credit:</label>
+        <input type="number" id="credit" name="c_credit" required><br>
+        <label for="instructor">Instructor:</label>
+        <input type="text" id="instructor" name="c_ins" required><br>
+        <input type="submit" value="Add Course">
+    </form>
+</body>
+{% endblock %}

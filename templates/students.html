@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+    <head>
+        <title>Students</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            {% for st in students %}
+            <tr>
+                <td>{{ st.name }}</td>
+                <td>{{ st.age }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Add a Student</h2>
+        <form method="POST" action="/students/add">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="st_name" required><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="st_age" required><br>
+            <input type="submit" value="Add Student">
+        </form>
+    </body>
+{% endblock %}
